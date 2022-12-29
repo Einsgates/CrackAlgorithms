@@ -20,6 +20,6 @@ int binarySearch(int[] nums, int target) {
 }
 ```
 ## 3. 滑动窗口
-Two pointers i, j, from beginning, and move to the rightmost, i <= j and keep track of the items between i and j. When some conditions are satisfied, compare and update what you need.  
+Two pointers i, j, from beginning, and move to the rightmost, i <= j and keep track of the items between i and j. When some conditions are satisfied, compare and update what you need. $O(n)$
 ## 4. 模拟
 Just simulate what this process is, sometimes use a visited array is helpful
