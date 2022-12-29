@@ -29,6 +29,47 @@ public class Spiral_MatrixII_59 {
     return arr;
   }
 
+  // Here is another method, which is more versatile, works fine in mxn matrix
+  // the idea is to track and mark visited, a small trick is used cuz res is
+  // initialized to 0s.
+  int[][] generateMatrix2(int n) {
+    int i = 0, j = 0;
+    // boolean[][] visited = new boolean[n][n];
+    int cnt = 1;
+    int[][] res = new int[n][n];
+    while (cnt <= n * n) {
+      while (j < n && res[i][j] == 0) {
+        res[i][j] = cnt;
+        cnt++;
+        j++;
+      }
+      j--;
+      i++;
+      while (i < n && res[i][j] == 0) {
+        res[i][j] = cnt;
+        cnt++;
+        i++;
+      }
+      i--;
+      j--;
+      while (j >= 0 && res[i][j] == 0) {
+        res[i][j] = cnt;
+        cnt++;
+        j--;
+      }
+      j++;
+      i--;
+      while (i >= 0 && res[i][j] == 0) {
+        res[i][j] = cnt;
+        cnt++;
+        i--;
+      }
+      i++;
+      j++;
+    }
+    return res;
+  }
+
   void printArray(int[][] arr) {
     for (int i = 0; i < arr.length; i++) {
       for (int j = 0; j < arr[i].length; j++) {
@@ -40,9 +81,9 @@ public class Spiral_MatrixII_59 {
   }
 
   public static void main(String[] args) {
-    int n = 1;
+    int n = 4;
     Spiral_MatrixII_59 myclass = new Spiral_MatrixII_59();
-    int[][] arr = myclass.generateMatrix(n);
+    int[][] arr = myclass.generateMatrix2(n);
     myclass.printArray(arr);
   }
 }
